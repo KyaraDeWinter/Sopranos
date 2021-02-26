@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+}
+
+/* hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* padding van sections */
+.welkom {
+    padding: 10%;
+}
+
+.openingstijden {
+    padding: 10%;
+    text-align: center;
+}
+
+.overons {
+    padding: 10%;
+}
+
+.betalingsopties {
+    padding: 10%;
+    text-align: center;
+}
+
+/* hr scheidingsstreep */
+hr {
+    width: 65%;
+    margin-left: 17%;
+}
+
+/* landing image, titel en tekst */
+.landing {
+    width: 100%;
+}
+
+.landing-img {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)), url("../images/pizza.jpg");
+    width: 100%;
+    height: 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.titel{
+    text-align: center;
+    color: white;
+}
+
+.titel-h1 {
+    font-family: 'Rock Salt', cursive;
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-bottom: -20px;
+}
+
+.titel-p {
+    font-size: 20px;
+}
+
+/* welkom */
+.tekst-welkom {
+    margin-bottom: 5rem;
+}
+
+/* postcode check input */
+.check-postcode {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.check-postcode form {
+    margin-top: 2rem;
+}
+
+.check-postcode input {
+    border: none;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* menukaart */
+.menukaart-tekst {
+    text-align: center;
+}
+
+.menukaart-tabel table {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+}
+
+.menukaart-tabel td {
+    text-align: left;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+}
+
+/* openingstijden */
+.openingstijden-tabel table {
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+}
+
+.openingstijden-tabel th {
+    text-align: left;
+}
+
+.openingstijden-tabel td {
+    text-align: right;
+}
+
+/* betalingsopties icons list */
+.betalingsopties-icons ul {
+    display: flex;
+    width: 40%;
+    list-style: none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1rem;
+}
+
+.betalingsopties-icons li {
+    padding: 1rem;
+}
+
+.betalingsopties-icons i {
+    margin-right: 10px;
+}
+
+/* mediaqueries */
+@media screen and (max-width: 768px) {
+
+    .landing-img {
+        height: 20vh;
+    }
+
+    .titel-h1 {
+        font-size: 30px;
+    }
+
+    .titel-p {
+        display: none;
+    }
+
+    nav {
+        position: relative;
+    }
+
+    .hamburger {
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+    }
+
+    .nav-links {
+        position: fixed;
+        background-color: whitesmoke;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(100px at 90% 10%);
+        -webkit-clip-path: circle(100px at 90% 10%);
+        transition: all 1s ease-out;
+    }
+
+    .nav-links.open {
+        clip-path: circle(100px at 90% 10%);
+        -webkit-clip-path: circle(100px at 90% 10%);
+    }
+
+    .line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px;
+    }
+}
