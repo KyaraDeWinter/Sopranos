@@ -36,25 +36,28 @@
 <section class="welkom">
     <div class="tekst-welkom">
         <h1>Soprano's beste recepten elke dag vers bereid</h1>
-        <p>Door bij Sopranos een vers bereide pizza te bestellen maakt u een reis door Italie.</p>
+        <p>Door bij Sopranos een vers bereide pizza te bestellen maakt u een reis door Italie. Sopranos maakt gebruik van streekproducten om de locale oogst te promoten. Wij zijn trots op onze authentieke recepten en ervaring in de Italiaanse keuken. Wij willen u uitnodigen om u te wanen in het zonnige Napels, waar de pizza zijn eerste opkomst maakte.</p>
+        <p><i>Heeft u trek in Italiaanse specialiteiten zoals verse pizza en calzone, dan zit u goed bij Sopranos Pizza!</i></p>
         <p>Buon Appetito!</p>
     </div>
 
-    <div class="check-postcode">
-        <h3>Sopranos Pizza bezorgd in een aantal steden en omgeving van Rotterdam, Amsterdam en Utrecht. Check uw postcode en bestel!</h3>
-        <form action="index.php" method="get">
-            <!-- input van postcode, max 6 -->
-            <input type="text" name="postcode" maxlength="6" placeholder="bijv. 1234AB">
-            <input type="submit">
-        </form>
+    <div class="border-wrapper">
+        <div class="check-postcode">
+            <h3>Sopranos Pizza bezorgd in een aantal steden en omgeving van Rotterdam, Amsterdam en Utrecht. Check uw postcode en bestel!</h3>
+            <form action="index.php" method="get">
+                <!-- input van postcode, max 6 -->
+                <input type="text" name="postcode" maxlength="6" placeholder="bijv. 1234AB">
+                <input type="submit">
+            </form>
+        </div>
     </div>
 </section>
 
 <!-- menukaart interactief -->
 <section id="menukaart" class="menukaart">
 <div class="menukaart-tekst">
-        <h4>Menu</h4>
-        <p>Bestel nu onze overheerlijke pizza's!</p>
+        <h4>Menukaart</h4>
+        <p>Bestel nu onze overheerlijke pizza's, warm thuisbezorgd!</p>
     </div>
     <div class="menukaart-tabel">
         <table>
@@ -65,7 +68,7 @@
 
             if ($result->num_rows > 0) {
                 while ($row = $result-> fetch_assoc()) {
-                    echo "<tr><td>" . $row["product"] . "</td><td>" . $row["omschrijving"] . "</td></tr>";
+                    echo "<tr><td>" . $row["product"] . "</td><td>" . $row["omschrijving"] . "</td><td>" . $row["prijs"] . "</td></tr>";
                 }
             } else {
                 echo "Geen Resultaat";
@@ -74,9 +77,17 @@
             ?>
         </table>
     </div>
-</section>
 
-<hr>
+    <div class="border-wrapper">
+        <div class="bestelling">
+            <div class="order">
+                <h3>Kies een van de lekkernijen en plaats uw bestelling!</h3>
+            </div>
+        </div>
+    </div>
+
+
+</section>
 
 <!-- over ons tekst -->
 <section id="overons" class="overons">
@@ -92,7 +103,7 @@
 <section id="openingstijden" class="openingstijden">
     <div class="openingstijden-tekst">
         <h4>Openingstijden</h4>
-        <p>U kunt nog een half uur voor sluitingstijd bij ons een maaltijd bestellen, telefonisch of online.</p>
+        <p>U kunt nog een half uur voor sluitingstijd bij ons een maaltijd bestellen, telefonisch of online via de website. Op maandag en dinsdag </p>
     </div>
     <div class="openingstijden-tabel"  style="text-align:center;">
     <table>
@@ -112,13 +123,13 @@
             <tr>
                 <th>Woensdag</th>
                 <td>
-                    <div class="tijd">Gesloten</div>
+                    <div class="tijd">17:00 - 22:00</div>
                 </td>
             </tr>
             <tr>
                 <th>Donderdag</th>
                 <td>
-                    <div class="tijd">17:00 - 20:45</div>
+                    <div class="tijd">17:00 - 22:00</div>
                 </td>
             </tr>
             <tr>
@@ -144,6 +155,8 @@
     </div>
 </section>
 
+<hr>
+
 <section id="betalingsopties" class="betalingsopties">
     <div class="betalingsopties-tekst">
         <h4>Beschikbare betalingsopties</h4>
@@ -164,6 +177,14 @@
                 <span>Betalen via IDeal</span>
             </li>
         </ul>
+    </div>
+</section>
+
+<section id="footer" class="footer">
+    <div class="footer-lists">
+        <footer>
+
+        </footer>
     </div>
 </section>
 

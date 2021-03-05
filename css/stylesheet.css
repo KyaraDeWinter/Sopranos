@@ -15,28 +15,28 @@ body {
 }
 
 /* padding van sections */
-.welkom {
-    padding: 10%;
+.landing {
+    margin-bottom: 5rem;
 }
 
-.openingstijden {
-    padding: 10%;
+.welkom, .menukaart, .overons {
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 6rem;
+}
+
+.openingstijden, .betalingsopties {
     text-align: center;
-}
-
-.overons {
-    padding: 10%;
-}
-
-.betalingsopties {
-    padding: 10%;
-    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 6rem;
 }
 
 /* hr scheidingsstreep */
 hr {
     width: 65%;
     margin-left: 17%;
+    margin-bottom: 6rem;
 }
 
 /* landing image, titel en tekst */
@@ -76,6 +76,14 @@ hr {
 }
 
 /* postcode check input */
+.border-wrapper {
+    padding: 3px;
+    position: relative;
+    border-radius: 11px;
+    /* background: linear-gradient(to top, #63c132, whitesmoke); */
+}
+
+/* postcode check input */
 .check-postcode {
     background-color: whitesmoke;
     border-radius: 10px;
@@ -94,14 +102,18 @@ hr {
 }
 
 /* menukaart */
-.menukaart-tekst {
+.menukaart {
+    padding: 1rem;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, #63c132,rgba(0, 0, 0, 0)) 1 100%;
     text-align: center;
 }
 
 .menukaart-tabel table {
-    width: 80%;
-    margin-right: auto;
-    margin-left: auto;
     margin-top: 2rem;
     margin-bottom: 6rem;
 }
@@ -110,6 +122,13 @@ hr {
     text-align: left;
     padding-right: 2rem;
     padding-bottom: 1rem;
+}
+
+/* bestelling */
+.order {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 2rem;
 }
 
 /* openingstijden */
@@ -149,50 +168,4 @@ hr {
 /* mediaqueries */
 @media screen and (max-width: 768px) {
 
-    .landing-img {
-        height: 20vh;
-    }
-
-    .titel-h1 {
-        font-size: 30px;
-    }
-
-    .titel-p {
-        display: none;
-    }
-
-    nav {
-        position: relative;
-    }
-
-    .hamburger {
-        position: absolute;
-        cursor: pointer;
-        right: 5%;
-        top: 50%;
-        transform: translate(-5%, -50%);
-    }
-
-    .nav-links {
-        position: fixed;
-        background-color: whitesmoke;
-        height: 100vh;
-        width: 100%;
-        flex-direction: column;
-        clip-path: circle(100px at 90% 10%);
-        -webkit-clip-path: circle(100px at 90% 10%);
-        transition: all 1s ease-out;
-    }
-
-    .nav-links.open {
-        clip-path: circle(100px at 90% 10%);
-        -webkit-clip-path: circle(100px at 90% 10%);
-    }
-
-    .line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px;
-    }
 }
