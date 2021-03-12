@@ -1,3 +1,11 @@
+<?php
+$sql = "SELECT * FROM sopranos";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->fetchAll();
+var_dump($result);
+?>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +23,51 @@
 <title>Sopranos Pizza | Vers bereid uit eigen keuken | Bestel nu</title>
 </head>
 <body>
+<!-- 
+<section id="menukaart" class="menukaart">
+    <div class="menukaart-tekst">
+        <h4>Menukaart</h4>
+        <p>Bestel nu onze overheerlijke pizza's, warm thuisbezorgd!</p>
+    </div>
+    <div class="menu">
+    <?php
+        
+        $connect = mysqli_connect('localhost', 'root', '', 'sopranos');
+        $query = 'SELECT * FROM menu ORDER by prijs ASC';
+        $result = mysqli_query($connect, $query);
 
+        if ($result) {
+            if(mysqli_num_rows($result)>0) {
+                while($product = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="card">
+                        <form method="post" action="index.php?action=add%id=<?php echo $product['id']; ?>">
+                        <div class="producten">
+                            <h3 class="product"><?php echo $product['product']; ?></h3>
+                            <h5><?php echo $product['omschrijving']; ?></h5>
+                            <h4>Vanaf € <?php echo $product['prijs']; ?></h4>
+                            <input type="hidden" name="product" value="<?php echo $product['product']; ?>">
+                            <input type="hidden" name="prijs" value="<?php echo $product['prijs']; ?>">
+                            <input type="submit" name="add_to_cart" class="button" value="Add To Cart">
+                        </div>
+                        </form>
+                    </div>
+                    <?php
+                }
+            }
+        }
+    ?>
+</div>
 
+    <div class="border-wrapper">
+        <div class="bestelling">
+            <div class="order">
+                <h3>Kies een van de lekkernijen en plaats uw bestelling!</h3>
+            </div>
+        </div>
+    </div>
+
+</section> -->
 
 </body>
 </html>
