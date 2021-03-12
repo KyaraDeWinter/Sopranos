@@ -1,3 +1,7 @@
+<?php
+    include_once 'db.php';
+?>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +19,11 @@
 <title>Sopranos Pizza | Vers bereid uit eigen keuken | Bestel nu</title>
 </head>
 <body>
+
+<?php
+$object = new db;
+$object->connect();
+?>
 
 <header>
     <!-- landingspage: image en navigatiebar -->
@@ -41,42 +50,52 @@
         <p>Buon Appetito!</p>
     </div>
 
-    <div class="border-wrapper">
-        <div class="check-postcode">
-            <h3>Sopranos Pizza bezorgd in een aantal steden en omgeving van Rotterdam, Amsterdam en Utrecht. Check uw postcode en bestel!</h3>
+        <div class="postcode">
+            <h3>Check uw postcode en bestel!</h3>
+            <h4>Sopranos Pizza bezorgd in een aantal steden en omgeving van Rotterdam, Amsterdam en Utrecht.</h4>
             <form action="index.php" method="get">
                 <!-- input van postcode, max 6 -->
-                <input type="text" name="postcode" maxlength="6" placeholder="bijv. 1234AB">
-                <input type="submit">
-            </form>
+                <input type="text" name="postcode" maxlength="6" class="input" placeholder="bijv. 1234AB">
+                <input type="submit" name="check_postcode" class="button" value="Check Postcode">
+            </form> 
         </div>
-    </div>
 </section>
 
 <!-- menukaart interactief -->
 <section id="menukaart" class="menukaart">
-<div class="menukaart-tekst">
+    <div class="menukaart-tekst">
         <h4>Menukaart</h4>
         <p>Bestel nu onze overheerlijke pizza's, warm thuisbezorgd!</p>
     </div>
-    <div class="menukaart-tabel">
-        <table>
-            <?php
-            $conn = mysqli_connect("localhost", "root", "", "sopranos");
-            $sql = "SELECT * FROM menu";
-            $result = $conn-> query($sql);
+    <div class="menu">
+    <?php
+        
+        $connect = mysqli_connect('localhost', 'root', '', 'sopranos');
+        $query = 'SELECT * FROM menu ORDER by prijs ASC';
+        $result = mysqli_query($connect, $query);
 
-            if ($result->num_rows > 0) {
-                while ($row = $result-> fetch_assoc()) {
-                    echo "<tr><td>" . $row["product"] . "</td><td>" . $row["omschrijving"] . "</td><td>" . $row["prijs"] . "</td></tr>";
+        if ($result) {
+            if(mysqli_num_rows($result)>0) {
+                while($product = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="card">
+                        <form method="post" action="index.php?action=add%id=<?php echo $product['id']; ?>">
+                        <div class="producten">
+                            <h3 class="product"><?php echo $product['product']; ?></h3>
+                            <h5><?php echo $product['omschrijving']; ?></h5>
+                            <h4>Vanaf € <?php echo $product['prijs']; ?></h4>
+                            <input type="hidden" name="product" value="<?php echo $product['product']; ?>">
+                            <input type="hidden" name="prijs" value="<?php echo $product['prijs']; ?>">
+                            <input type="submit" name="add_to_cart" class="button" value="Add To Cart">
+                        </div>
+                        </form>
+                    </div>
+                    <?php
                 }
-            } else {
-                echo "Geen Resultaat";
             }
-            $conn->close();
-            ?>
-        </table>
-    </div>
+        }
+    ?>
+</div>
 
     <div class="border-wrapper">
         <div class="bestelling">
@@ -85,7 +104,6 @@
             </div>
         </div>
     </div>
-
 
 </section>
 
