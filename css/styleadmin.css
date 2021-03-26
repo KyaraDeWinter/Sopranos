@@ -1,47 +1,51 @@
-* {
+
+
+/* navigatie */
+.navbar ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    overflow: hidden;
+    background-color: whitesmoke;
+    text-align: center;
 }
 
-body {
-    font-family: 'Lato', sans-serif;
-    width: 100%;
+.navbar li {
+    display: inline-block;
 }
 
-/* hide scrollbar */
-::-webkit-scrollbar {
-    display: none;
+.navbar a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: ease 0.2s;
 }
 
-/* landing image, titel en tekst */
-.landing {
-    width: 100%;
+.navbar li a:hover {
+    background-color: lightgrey;
 }
 
-.landing-img {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)), url("../images/background.jpg");
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* login */
+/* welkom */
 .loginadmin {
-    padding: 2rem;
-    text-align: center;
-    width: 50%;
-    margin: auto;
-    height: 100vh;
-    background: linear-gradient(142deg, rgba(255,255,255,0.7598389697675946) 0%, rgba(255,255,255,0) 100%);
-    text-align: center;
-    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.loginadmin .input {
+.postcode {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 4rem;
+    text-align: center;
+}
+
+.postcode h4 {
+    margin-top: 1rem;
+}
+
+.postcode .input {
     border: none;
     background-color: white;
     padding: 1rem;
@@ -49,23 +53,12 @@ body {
     text-transform: uppercase;
     border-radius: 5px;
     cursor: text;
+    margin-right: 1rem;
 }
 
-.loginadmin h1 {
-    font-family: 'Rock Salt', cursive;
-    font-size: 60px;
-    letter-spacing: 2px;
-    margin-bottom: 5rem;
-}
-
-.loginadmin h3 {
-    letter-spacing: 1px;
-}
-
-.loginadmin form {
+.postcode form {
     margin-top: 2rem;
 }
-
 
 /* BUTTON */
 .button {
@@ -83,3 +76,69 @@ body {
     background-color: green;
     transform: scale(1.1);
 }
+
+/* footer */
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: whitesmoke;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.footer-titel {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+/* openingstijden */
+.openingstijden-tabel {
+    width: 100%;
+}
+.openingstijden-tabel th, .tijd {
+    text-align: left;
+}
+
+.tijd {
+    margin-left: 5rem;
+}
+
+/* betalingsopties icons list */
+.betalingsopties-icons ul {
+    display: flex;
+    list-style: none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.betalingsopties-icons i {
+    margin-right: 10px;
+}
+
+.betalingsopties-icons li {
+    margin-right: 2rem;
+    transition: ease 0.4s;
+}
+
+.betalingsopties-icons li:hover {
+    color: green;
+    transform: scale(1.2);
+}
+
+/* CONTACTPAGINA */
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.contactgegevens {
+    padding-right: 2rem;
+}
+
+.contactgegevens h1, p {
+    margin-bottom: 1rem;
+}
+

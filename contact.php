@@ -12,7 +12,7 @@
 
 <!-- titel icon en titel -->
 <link rel="icon" href="images/logo.png" type="image">
-<title>Sopranos Pizza | Vers bereid uit eigen keuken | Bestel nu</title>
+<title>Sopranos Pizza | Vers bereid uit eigen keuken | Bestel nu! </title>
 </head>
 <body>
 

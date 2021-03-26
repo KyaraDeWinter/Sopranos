@@ -1,5 +1,5 @@
 <?php
-    include_once 'db.php';
+  include_once 'db.php';
 ?>
 
 <html>
@@ -16,15 +16,13 @@
 
 <!-- titel icon en titel -->
 <link rel="icon" href="images/logo.png" type="image">
-<title>Sopranos Pizza | Vers bereid uit eigen keuken | Bestel nu</title>
+<title>Sopranos Pizza | Vers bereid uit eigen keuken | Bestel nu! </title>
 </head>
 <body>
 
 <?php
-$object = new db;
-$db = $object->connect();
-
-
+  $object = new db;
+  $db = $object->connect();
 // print_r(PDO::getAvailableDrivers());
 ?>
 
@@ -91,13 +89,13 @@ $db = $object->connect();
             $result = $stmt->fetchAll();
             
         //     var_dump($result);
-
         
         //    set the resulting array to associative
         //    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         //    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
         //    echo $v;
         //     }
+
         } catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
