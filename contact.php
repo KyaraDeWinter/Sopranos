@@ -1,7 +1,3 @@
-<?php
-    include_once 'db.php';
-?>
-
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +15,6 @@
 <title>Sopranos Pizza | Vers bereid uit eigen keuken | Bestel nu</title>
 </head>
 <body>
-
-<?php
-$object = new db;
-$db = $object->connect();
-
-
-// print_r(PDO::getAvailableDrivers());
-?>
 
 <header>
     <!-- landingspage: image en navigatiebar -->
@@ -46,9 +34,9 @@ $db = $object->connect();
     <section class="navigatie">
       <div class="navbar">
         <ul>
-          <li><a href="#menukaart">Menukaart</a></li>
-          <li><a href="#overons">Over Ons</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          <li><a href="home.php #menukaart">Menukaart</a></li>
+          <li><a href="home.php #overons">Over Ons</a></li>
+          <li><a href="home.php">Home</a></li>
         </ul>
       </div>
     </section>
@@ -57,90 +45,48 @@ $db = $object->connect();
 <!-- welkom tekst -->
 <section class="welkom">
     <div class="tekst-welkom">
-        <h1>Soprano's beste recepten elke dag vers bereid</h1>
-        <p>Door bij Sopranos een vers bereide pizza te bestellen maakt u een reis door Italie. Sopranos maakt gebruik van streekproducten om de locale oogst te promoten. Wij zijn trots op onze authentieke recepten en ervaring in de Italiaanse keuken. Wij willen u uitnodigen om u te wanen in het zonnige Napels, waar de pizza zijn eerste opkomst maakte.</p>
-        <p><i>Heeft u trek in Italiaanse specialiteiten zoals verse pizza en calzone, dan zit u goed bij Sopranos Pizza!</i></p>
-        <p>Buon Appetito!</p>
+        <h1>Neem contact op bij vragen of opmerkingen</h1>
+        <p>Heeft u vragen over allergenen in onze producten of wilt u reserveren voor een groep groter dan 8, neem contact op door het formulier in te vullen. Wij reageren zo spoedig mogelijk op uw vraag.</p>
     </div>
 
         <div class="postcode">
-            <h3>Check uw postcode en bestel!</h3>
-            <h4>Sopranos Pizza bezorgd in een aantal steden en omgeving van Nijmegen, Arnhem en Utrecht.</h4>
-            <form action="index.php" method="get">
-                <!-- input van postcode, max 6 -->
-                <input type="text" name="postcode" maxlength="6" class="input" placeholder="bijv. 1234AB">
-                <input type="submit" name="check_postcode" class="button" value="Check Postcode">
+            <h3>Neem contact met ons op!</h3>
+            <form class="contact-form" action="index.php" method="post">
+                <input type="text" name="naam" placeholder="Volledige naam">
+                <input type="text" name="mail" placeholder="Email adress">
+                <input type="text" name="onderwerp" placeholder="Onderwerp">
+                <textarea name="tekst" placeholder="Tekst" id="" cols="30" rows="10"></textarea>
+                <button type="submit" name="submit">Verzend bericht</button>
             </form> 
         </div>
 </section>
 
 <hr>
 
-<!-- menukaart interactief -->
-<section id="menukaart" class="menukaart">
-    <div class="menukaart-tekst">
-        <h4>Menukaart</h4>
-        <p>Bestel nu onze overheerlijke pizza's, warm thuisbezorgd!</p>
+<!-- welkom tekst -->
+<section class="contact">
+    <div class="contactgegevens">
+        <h1>Contactgegevens Nijmegen</h1>
+        <p>Grotestraat 147</p>
+        <p>1234 AB Nijmegen</p>
+        <p>Telefonisch bereikbaar op: +31 612345678</p>
+        <p>Routebeschrijving</p>
     </div>
-    <div class="menu">
-    <?php
 
-        try {
-            $stmt = $db->prepare("SELECT * FROM menu ORDER by prijs ASC");
-            $stmt->execute();
-            $result = $stmt->fetchAll();
-            
-        //     var_dump($result);
+    <div class="contactgegevens">
+        <h1>Contactgegevens Arnhem</h1>
+        <p>Grotestraat 147</p>
+        <p>1234 AB Arnhem</p>
+        <p>Telefonisch bereikbaar op: +31 623456789</p>
+        <p>Routebeschrijving</p>
+    </div>
 
-        
-        //    set the resulting array to associative
-        //    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        //    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-        //    echo $v;
-        //     }
-        } catch(PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
-        $conn = null;
-    
-           if(count($result)>0) {
-                foreach($result as $product){
-                    ?>
-                    <div class="card">
-                        <form method="post" action="index.php?action=add%id=<?php echo $product['id']; ?>">
-                        <div class="producten">
-                            <h3 class="product"><?php echo $product["product"]; ?></h3>
-                            <h5><?php echo $product['omschrijving']; ?></h5>
-                            <h4>Vanaf € <?php echo $product['prijs']; ?></h4>
-                            <input type="hidden" name="product" value="<?php echo $product['product']; ?>">
-                            <input type="hidden" name="prijs" value="<?php echo $product['prijs']; ?>">
-                            <input type="submit" name="add_to_cart" class="button" value="Add To Cart">
-                        </div>
-                        </form>
-                    </div>
-                    <?php
-                }
-            }
-    ?>
-</div>
-</section>
-
-<!-- shopping cart (order) -->
-<section id="shoppingcart" class="shoppingcart">
-      <div class="bestelling">
-          <div class="shoppingcart-tekst">
-              <h3>Kies een van de lekkernijen en plaats uw bestelling!</h3>
-          </div>
-      </div>
-</section>
-
-<hr>
-
-<!-- over ons tekst -->
-<section id="overons" class="overons">
-    <div class="overons-tekst">
-        <h4>Over Ons</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nemo repellat eum ipsam quos itaque non tempora veritatis optio sequi velit hic dolorem quasi doloremque molestiae harum eaque nam saepe doloribus sapiente, enim voluptatum facilis minus blanditiis! Eaque eius ipsam doloribus. Iure error pariatur labore quisquam blanditiis modi est facere recusandae eveniet ullam possimus consequuntur minima, fugit fugiat beatae vel minus quibusdam eos corporis doloremque expedita!<br><br>Illum omnis libero mollitia temporibus, nobis, voluptate minima odio eum id ducimus ipsum, aliquid repudiandae sint amet. Accusantium fugiat deserunt dolore libero dolor aliquid, ab, labore rerum aspernatur minus veniam obcaecati eligendi porro mollitia?</p>
+    <div class="contactgegevens">
+        <h1>Contactgegevens Groesbeek</h1>
+        <p>Grotestraat 147</p>
+        <p>1234 AB Groesbeek</p>
+        <p>Telefonisch bereikbaar op: +31 634567890</p>
+        <p>Routebeschrijving</p>
     </div>
 </section>
 

@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+}
+
+/* hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* landing image, titel en tekst */
+.landing {
+    width: 100%;
+}
+
+.landing-img {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)), url("../images/background.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* login */
+.loginadmin {
+    padding: 2rem;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    height: 100vh;
+    background: linear-gradient(142deg, rgba(255,255,255,0.7598389697675946) 0%, rgba(255,255,255,0) 100%);
+    text-align: center;
+    color: white;
+}
+
+.loginadmin .input {
+    border: none;
+    background-color: white;
+    padding: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: text;
+}
+
+.loginadmin h1 {
+    font-family: 'Rock Salt', cursive;
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin-bottom: 5rem;
+}
+
+.loginadmin h3 {
+    letter-spacing: 1px;
+}
+
+.loginadmin form {
+    margin-top: 2rem;
+}
+
+
+/* BUTTON */
+.button {
+    border: none;
+    background-color: #63c132;
+    padding: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: ease 0.4s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: green;
+    transform: scale(1.1);
+}
