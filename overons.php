@@ -27,14 +27,6 @@
 
   <header>
     <!-- landingspage: IMAGE+TITLE -->
-        <div class="landing-img">
-            <div class="landing-text">
-                <h1>Sopranos Pizza</h1>
-                <p>De lekkerste pizza's warm thuisbezorgd</p>
-                <a class='button' href="home.php #menukaart">Bestel nu! <i class="fas fa-arrow-down"></i></a>
-            </div>
-        </div>
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
             <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav mx-auto">
               <li class="nav-item">
-               <a class="nav-link" href="home.php #menukaart">Menukaart</a>
+               <a class="nav-link" href="home.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Over Ons</a>
@@ -78,83 +70,10 @@
             </div>
             <div class="col-12 col-md-6">
                 <div class="zipcode">
-                    <h3>Check uw postcode en bestel!</h3>
-                    <h4>Sopranos Pizza bezorgd in de omgeving van Nijmegen!</h4>
 
-                <form action="home.php" method="post">
-                    <!-- input zipcode, max 6 -->
-                    <input type="text" name="input_zipcode" maxlength="4" class="input input_zipcode" placeholder="bijv. 1234">
-                    <input type="submit" name="check_zipcode" class="button check_zipcode" value="Check Postcode">
-
-                    <?php
-                    $code = array(6500, 6501, 6502, 6503, 6504, 6505, 6506, 6507, 6508, 6509, 6510, 6511, 6512, 6513, 6514, 6515, 6516, 6517, 6518, 6519, 6520, 6521, 6522, 6523, 6524, 6525, 6526, 6527, 6528, 6529, 6530, 6531, 6532, 6533, 6534, 6535, 6536, 6537, 6538, 6539, 6540, 6541, 6542, 6543, 6544, 6545, 6546, 6547);
-                    $gebruiker_input = isset($_POST['input_zipcode']);
-
-                    if (isset($_POST['check_zipcode'])) {
-                    if ($gebruiker_input = $code)
-                        {
-                        echo "Wij bezorgen in je buurt!";
-                        } else {
-                        echo "Wij bezorgen NIET in je buurt!";
-                        }
-                    }
-                ?>
-
-                </form> 
                 </div>
             </div>
         </div>
-    </div>
-
-    <hr>
-
-    <!-- MENU -->
-    <div id='menukaart' class="container">
-        <div class="menu-text">
-            <h4>Menukaart</h4>
-            <p>Bestel nu onze overheerlijke pizza's, warm thuisbezorgd!</p>
-        </div>
-
-                <?php
-                    try {
-                    $stmt = $db->prepare("SELECT * FROM menu ORDER by prijs ASC");
-                    $stmt->execute();
-                    $result = $stmt->fetchAll();
-
-                    //     var_dump($result);      
-
-                    } catch(PDOException $e) {
-                    echo "Error: " . $e->getMessage();
-                    }
-                    $conn = null;
-
-                    if(count($result)>0) {
-                    foreach($result as $product){
-                ?>
-
-                    <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <form method="post" action="home.php?action=add%id=<?php echo $product['id']; ?>">
-                                    <div class="producten">
-                                        <h3 class="product"><?php echo $product["product"]; ?></h3>
-                                        <h5><?php echo $product['omschrijving']; ?></h5>
-                                        <h4>Vanaf € <?php echo $product['prijs']; ?></h4>
-                                        <input type="hidden" name="product" value="<?php echo $product['product']; ?>">
-                                        <input type="hidden" name="prijs" value="<?php echo $product['prijs']; ?>">
-                                        <input type="submit" name="add_to_cart" class="button" value="Add To Cart">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                <?php
-                }
-                }
-                ?>
-       
     </div>
 
 <!-- footer -->

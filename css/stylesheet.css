@@ -9,6 +9,7 @@
 body {
     font-family: 'Lato', sans-serif;
     width: 100%;
+    background-color: whitesmoke;
 }
 
 /* HIDE SCROLLBAR */
@@ -16,63 +17,39 @@ body {
     display: none;
 }
 
-/* PADDING SECTIONS */
-.navigationbar {
-    margin-bottom: 6rem;
-}
-
-.menukaart, .loginadmin {
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-.welcome, .overons, .contact, .shoppingcart {
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-bottom: 6rem !important;
-}
-
-.openingstijden, .betalingsopties, .contactfooter {
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 10%;
-    padding-bottom: 10%;
-}
-
 /* HR (SCHEIDINGSSTREEP) */
 hr {
     width: 65%;
     margin-left: 17%;
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
 }
 
 /* BUTTON */
 .button {
     border: none;
-    background-color: #63c132;
+    background-color: #EBEBEB;
     padding: 1rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     border-radius: 5px;
     transition: ease 0.4s;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
 
 .button:hover {
-    background-color: green;
-    transform: scale(1.1);
+    background-color: #CECECE;
+    color: black;
 }
 
 /* LANDING */
-.landing {
-    width: 100%;
-}
-
 .landing-img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.5)), url("../images/background.jpg");
-    width: 100%;
-    height: 30%;
+    width: 100vw;
+    height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -81,50 +58,31 @@ hr {
 .landing-text {
     text-align: center;
     color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 .landing-text h1 {
     font-family: 'Rock Salt', cursive;
-    font-size: 40px;
+    font-size: 74px;
     letter-spacing: 2px;
 }
 
 .landing-text p {
-    font-size: 20px;
+    font-size: 30px;
+    margin-bottom: 2rem;
 }
 
-/* NAVIGATIE */
-.navigationbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: whitesmoke;
-    text-align: center;
-}
-
-.navigationbar li {
-    display: inline-block;
-}
-
-.navigationbar a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: ease 0.2s;
-}
-
-.navigationbar li a:hover {
-    background-color: lightgrey;
+.navbar {
+    margin-bottom: 5rem;
 }
 
 /* WELKOM TEXT */
-.welcome {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+#welcome {
+    margin-bottom: 4rem;
 }
 
 .welcome-text {
@@ -136,8 +94,8 @@ hr {
 }
 
 /* WELKOM ZIPCODE */
-.zipcode, .contactform {
-    background-color: whitesmoke;
+.zipcode {
+    background-color: white;
     border-radius: 10px;
     padding: 3rem;
     text-align: center;
@@ -147,9 +105,9 @@ hr {
     margin-top: 1rem;
 }
 
-.zipcode .input, .contactform-form input, .contactform-form textarea {
+.zipcode .input {
     border: none;
-    background-color: white;
+    background-color: whitesmoke;
     padding: 1rem;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -162,44 +120,27 @@ hr {
 }
 
 /* MENUKAART */
-.menu {
-    padding: 1rem;
-    width: 80%;
-    margin: auto;
-    text-align: center;
+#menukaart {
+    margin-bottom: 5rem;
 }
 
-.menu-tabel table {
-    margin-top: 2rem;
-    margin-bottom: 6rem;
-}
-
-.menu-tabel td {
-    text-align: left;
-    padding-right: 2rem;
-    padding-bottom: 1rem;
+.card {
+    border: none;
+    margin-bottom: 1rem;
 }
 
 .menu-text {
     margin-bottom: 2rem;
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     text-align: center;
-    gap: 1rem;
 }
 
 .producten {
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 5px;
     padding: 1rem;
-    min-height: 17rem;
 }
 
-.producten h4, h5 {
+.producten h3, h4, h5 {
     margin-bottom: 1rem;
 }
 
@@ -217,18 +158,20 @@ hr {
 }
 
 /* FOOTER */
-footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: whitesmoke;
-    padding-left: 5%;
-    padding-right: 5%;
+.footer {
+    background-color: #1F1F1F;
+    color: white;
+}
+
+.footer-column {
+  padding: 3rem;
 }
 
 .footer-titel {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 /* OPENINGSTIJDEN */
