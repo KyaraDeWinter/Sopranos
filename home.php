@@ -4,19 +4,19 @@
 
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- connectie css -->
-<link rel="stylesheet" href="css/stylesheet.css">
-<!-- connectie google fonts: Lato en Rock Salt -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
-<!-- connectie font awesome: fav-icons -->
-<script src="https://kit.fontawesome.com/5b23f4b030.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- connection css -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- connection google fonts: Lato+Rock Salt -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <!-- connection font awesome: fav-icons -->
+    <script src="https://kit.fontawesome.com/5b23f4b030.js" crossorigin="anonymous"></script>
 
-<!-- titel icon en titel -->
-<link rel="icon" href="images/logo.png" type="image">
-<title>Sopranos Pizza | Vers bereid uit eigen keuken | Bestel nu! </title>
+    <!-- title icon+titel -->
+    <link rel="icon" href="images/logo.png" type="image">
+    <title>Sopranos Pizza | Verse Pizza Warm Thuisbezorgd | Bestel Nu! </title>
 </head>
 <body>
 
@@ -27,60 +27,74 @@
 ?>
 
 <header>
-    <!-- landingspage: image en navigatiebar -->
+    <!-- landingspage: IMAGE+TITLE -->
     <section class="landing">
         <div class="landing-img">
-            <div class="titel">
-                <div class="titel-h1">
+            <div class="landing-text">
                 <h1>Sopranos Pizza</h1>
-                </div>
-                <div class="titel-p">
                 <p>De lekkerste pizza's warm thuisbezorgd</p>
-                </div>
             </div>
         </div>
     </section> 
 
-    <section class="navigatie">
-      <div class="navbar">
+    <!-- landingspage: NAVIGATION -->
+    <section class="navigation">
+      <div class="navigationbar">
         <ul>
-          <li><a href="#menukaart">Menukaart</a></li>
-          <li><a href="#overons">Over Ons</a></li>
+          <li><a href="home.php #menukaart">Menukaart</a></li>
+          <li><a href="home.php #overons">Over Ons</a></li>
           <li><a href="contact.php">Contact</a></li>
         </ul>
       </div>
     </section>
 </header>
 
-<!-- welkom tekst -->
-<section class="welkom">
-    <div class="tekst-welkom">
+<!-- WELCOME -->
+<section class="welcome">
+    <div class="welcome-text">
         <h1>Soprano's beste recepten elke dag vers bereid</h1>
         <p>Door bij Sopranos een vers bereide pizza te bestellen maakt u een reis door Italie. Sopranos maakt gebruik van streekproducten om de locale oogst te promoten. Wij zijn trots op onze authentieke recepten en ervaring in de Italiaanse keuken. Wij willen u uitnodigen om u te wanen in het zonnige Napels, waar de pizza zijn eerste opkomst maakte.</p>
         <p><i>Heeft u trek in Italiaanse specialiteiten zoals verse pizza en calzone, dan zit u goed bij Sopranos Pizza!</i></p>
         <p>Buon Appetito!</p>
     </div>
 
-        <div class="postcode">
+        <div class="zipcode">
             <h3>Check uw postcode en bestel!</h3>
-            <h4>Sopranos Pizza bezorgd in een aantal steden en omgeving van Nijmegen, Arnhem en Utrecht.</h4>
-            <form action="index.php" method="get">
-                <!-- input van postcode, max 6 -->
-                <input type="text" name="postcode" maxlength="6" class="input" placeholder="bijv. 1234AB">
-                <input type="submit" name="check_postcode" class="button" value="Check Postcode">
+            <h4>Sopranos Pizza bezorgd in de omgeving van Nijmegen!</h4>
+            <form action="home.php" method="post">
+                <!-- input zipcode, max 6 -->
+                <input type="text" name="input_zipcode" maxlength="4" class="input input_zipcode" placeholder="bijv. 1234">
+                <input type="submit" name="check_zipcode" class="button check_zipcode" value="Check Postcode">
+
+                <?php
+                    $code = array(6500, 6501, 6502, 6503, 6504, 6505, 6506, 6507, 6508, 6509, 6510, 6511, 6512, 6513, 6514, 6515, 6516, 6517, 6518, 6519, 6520, 6521, 6522, 6523, 6524, 6525, 6526, 6527, 6528, 6529, 6530, 6531, 6532, 6533, 6534, 6535, 6536, 6537, 6538, 6539, 6540, 6541, 6542, 6543, 6544, 6545, 6546, 6547);
+                    $gebruiker_input = isset($_POST['input_zipcode']);
+
+                    if (isset($_POST['check_zipcode'])) {
+                      if ($gebruiker_input = $code)
+                      {
+                      echo "Wij bezorgen in je buurt!";
+                      }                                                                                                                                                                                                                    
+                    else
+                      {
+                      echo "Wij bezorgen NIET in je buurt!";
+                      }
+                    }
+                ?>
+
             </form> 
         </div>
 </section>
 
 <hr>
 
-<!-- menukaart interactief -->
-<section id="menukaart" class="menukaart">
-    <div class="menukaart-tekst">
+<!-- MENU -->
+<section id="menu" class="menu">
+    <div class="menu-text">
         <h4>Menukaart</h4>
         <p>Bestel nu onze overheerlijke pizza's, warm thuisbezorgd!</p>
     </div>
-    <div class="menu">
+    <div class="menu-grid">
     <?php
 
         try {
@@ -105,7 +119,7 @@
                 foreach($result as $product){
                     ?>
                     <div class="card">
-                        <form method="post" action="index.php?action=add%id=<?php echo $product['id']; ?>">
+                        <form method="post" action="home.php?action=add%id=<?php echo $product['id']; ?>">
                         <div class="producten">
                             <h3 class="product"><?php echo $product["product"]; ?></h3>
                             <h5><?php echo $product['omschrijving']; ?></h5>
@@ -123,18 +137,19 @@
 </div>
 </section>
 
-<!-- shopping cart (order) -->
+<!-- shopping cart -->
 <section id="shoppingcart" class="shoppingcart">
+      <div class="shoppingcart-tekst">
+          <h3>U kiest een overheerlijke maaltijd, wij zorgen dat deze warm bij u thuis komt!</h3>
+      </div>
       <div class="bestelling">
-          <div class="shoppingcart-tekst">
-              <h3>Kies een van de lekkernijen en plaats uw bestelling!</h3>
-          </div>
+          
       </div>
 </section>
 
 <hr>
 
-<!-- over ons tekst -->
+<!-- over ons -->
 <section id="overons" class="overons">
     <div class="overons-tekst">
         <h4>Over Ons</h4>
